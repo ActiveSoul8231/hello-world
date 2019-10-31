@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.anbo.cilicili.dao.UserDao">
+    <!--
+       resultMap 用于配置 实体类与数据库表的映射
+       id为唯一标识 随意起名 不能重复
+       type 配置实体类的全路径名
+    -->
+    <resultMap id="userMap" type="com.anbo.cilicili.bean.User">
+        <!--
+            id 标签 配置 id 和  result 一样
+            column 数据库字段名
+            property 实体类属性名  小驼峰命名规则
+            jdbcType 数据库字段的实体类型 （要求  必须全部大写）
+            javaType 可以忽略
+        -->
+        <id column="id" property="id" jdbcType="INTEGER"></id>
+        <result column="user_name" property="userName" jdbcType="VARCHAR"></result>
+        <result column="password" property="password" jdbcType="VARCHAR"></result>
+    </resultMap>
+  <!--  <select id="getUserByName" resultMap="userMap">
+        select user_name,password from tb_users where user_name = #{userName}
+    </select>-->
+</mapper>
